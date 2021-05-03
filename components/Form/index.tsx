@@ -24,7 +24,7 @@ export const Form = (props: Props) => {
           </Box>
           <form onSubmit={handleSubmit}>
             <textarea value={value} onChange={handleChange} style={{ width: "100%", padding: "8px" }} rows={6} />
-            <TextField variant="outlined" label="number of trials" type="number" value={numberOfTrials} onChange={ev => setNumberOfTrials(ev.target.value)} />
+            <TextField variant="outlined" label="number of trials" type="number" value={numberOfTrials} onChange={ev => setNumberOfTrials(parseInt(ev.target.value))} />
             <Box mt={3}>
               <Button variant="contained" color="primary" type="submit">Test</Button>
             </Box>
