@@ -1,11 +1,11 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useCallback, useState } from 'react';
 import { Result } from '../../types';
 import { RawTextWithTitleCard } from '../RawText';
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
-import MessageIcon from '@material-ui/icons/Message';
-import HttpsIcon from '@material-ui/icons/Https';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import MessageIcon from '@mui/icons-material/Message';
+import HttpsIcon from '@mui/icons-material/Https';
 
 interface Props {
   index: number
@@ -25,8 +25,8 @@ export const Detail = (props: Props) => {
         {expanded && (
           <Box width={1}>
             <Box display="flex" width={1}>
-              <RawTextWithTitleCard icon={<VpnKeyIcon />} title="private key">{props.result.keys.privateKeyArmored}</RawTextWithTitleCard>
-              <RawTextWithTitleCard icon={<VpnKeyIcon />} title="public key">{props.result.keys.publicKeyArmored}</RawTextWithTitleCard>
+              <RawTextWithTitleCard icon={<VpnKeyIcon />} title="private key">{props.result.keys.privateKey}</RawTextWithTitleCard>
+              <RawTextWithTitleCard icon={<VpnKeyIcon />} title="public key">{props.result.keys.publicKey}</RawTextWithTitleCard>
             </Box>
 
             <Box display="flex" width={1}>

@@ -1,4 +1,4 @@
-import { Box } from "@material-ui/core"
+import { Box } from '@mui/material';
 import { STATUS } from "../../types"
 import { LinearStepper } from "../LinearStepper"
 
@@ -8,7 +8,7 @@ interface Props {
 
 export const Header = (props: Props) => {
   return (
-    <Box mb={3}>
+    <Box my={3}>
       <LinearStepper status={props.status} />
     </Box>
   )

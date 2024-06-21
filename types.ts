@@ -1,11 +1,13 @@
 import * as openpgp from 'openpgp'
 
 export type ResultByCipher = {
-  [key in openpgp.EllipticCurveName]: Result[]
+  [key in Exclude<openpgp.EllipticCurveName, "secp256k1">]: Result[]
 }
 
 export type Result = {
-  keys: openpgp.KeyPair
+  keys: openpgp.SerializedKeyPair<string> & {
+    revocationCertificate: string;
+  }
   encryptedMessage: string
   decryptedMessage: string
   performance: {

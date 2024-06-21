@@ -1,7 +1,7 @@
-import * as openpgp from 'openpgp';
+import { generateKey, EllipticCurveName, KeyPair } from 'openpgp';
 
-export const createECCKeys = async (ecn: openpgp.EllipticCurveName): Promise<openpgp.KeyPair> => {
-  const keys = await openpgp.generateKey({
+export const createECCKeys = async (ecn: EllipticCurveName) => {
+  const keys = await generateKey({
     type: "ecc",
     curve: ecn,
     userIDs: [{
@@ -9,5 +9,6 @@ export const createECCKeys = async (ecn: openpgp.EllipticCurveName): Promise<ope
       email: 'example@example.com'
     }]
   });
+
   return keys
 }

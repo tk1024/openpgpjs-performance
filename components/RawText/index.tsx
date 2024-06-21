@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, makeStyles, Typography } from "@material-ui/core";
+import { Box, Card, CardContent, Typography } from '@mui/material';
 import { ReactNode } from "react";
 
 interface Props {
@@ -7,15 +7,7 @@ interface Props {
   children: ReactNode
 }
 
-const useStyles = makeStyles({
-  codeFont: {
-    fontSize: 10
-  },
-});
-
 export const RawTextWithTitleCard = (props: Props) => {
-  const classes = useStyles();
-
   return (
     <Box width={1} p={1}>
       <Card variant="outlined">
@@ -26,9 +18,9 @@ export const RawTextWithTitleCard = (props: Props) => {
               {props.title}
             </Box>
           </Typography>
-          <pre className={classes.codeFont}>
+          <Typography sx={{ fontSize: 10 }} component={"pre"}>
             <code>{props.children}</code>
-          </pre>
+          </Typography>
         </CardContent>
       </Card>
     </Box>
