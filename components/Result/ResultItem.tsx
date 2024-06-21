@@ -1,7 +1,6 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
+import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { Result } from '../../types';
 import { Detail } from './Detail';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 interface Props {
   name: string
@@ -39,14 +38,14 @@ export const ResultItem = (props: Props) => {
                 <TableBody>
                   <TableRow>
                     <TableCell component="th" scope="row">Encryption</TableCell>
-                    {[Math.round(eMax), Math.round(eAva), Math.round(eMin)].map(num => (
-                      <TableCell align="right">{num} ms</TableCell>
+                    {[Math.round(eMax), Math.round(eAva), Math.round(eMin)].map((num, i) => (
+                      <TableCell key={i} align="right">{num} ms</TableCell>
                     ))}
                   </TableRow>
                   <TableRow>
                     <TableCell component="th" scope="row">Decryption</TableCell>
-                    {[Math.round(dMax), Math.round(dAva), Math.round(dMin)].map(num => (
-                      <TableCell align="right">{num} ms</TableCell>
+                    {[Math.round(dMax), Math.round(dAva), Math.round(dMin)].map((num, i) => (
+                      <TableCell key={i} align="right">{num} ms</TableCell>
                     ))}
                   </TableRow>
                 </TableBody>

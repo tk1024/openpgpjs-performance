@@ -1,17 +1,18 @@
-import * as openpgp from 'openpgp';
+import { PublicKey, createMessage, encrypt, readKey } from 'openpgp';
 
 interface Params {
-  publicKeyArmored: string
+  armoredPublicKey: string
   text: string
 }
 
 export const encryptMessage = async (params: Params): Promise<string> => {
-  const publicKey = await openpgp.readKey({ armoredKey: params.publicKeyArmored });
+  const publicKey = await readKey({ armoredKey: params.armoredPublicKey });
 
-  const encryptedMessage = await openpgp.encrypt({
-    message: await openpgp.createMessage({ text: params.text }),
-    publicKeys: publicKey
+  const encryptedMessage = await encrypt({
+    message: await createMessage({ text: params.text }),
+    encryptionKeys: publicKey,
+    format: 'armored'
   });
 
-  return encryptedMessage
+  return encryptedMessage as string
 }
